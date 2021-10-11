@@ -4,32 +4,82 @@
     "createdAt": "23-july-2021",
     "title": "Learning singleton pattern",
     "description": "I would like to learn singleton pattern in Javascript, this is important for my work.",
-    "link" : "https://link.com",
+    "link": "https://link.com",
     "image": "https://image.com",
     "priority": 3,
     "timeToFinish": 120,
-    "active": true
+    "status": "inactive"
   },
   {
     "id": "2",
     "createdAt": "18-august-2021",
     "title": "Resource 2",
     "description": "Resource 2 description",
-    "link" : "https://link.com",
+    "link": "https://link.com",
     "image": "https://image.com",
     "priority": 2,
     "timeToFinish": 60,
-    "active": false
+    "status": "inactive"
   },
   {
     "id": "3",
     "createdAt": "30-september-2021",
     "title": "Resource 3",
     "description": "Resource 3 description",
-    "link" : "https://link.com",
+    "link": "https://link.com",
     "image": "https://image.com",
     "priority": 1,
     "timeToFinish": 60,
-    "active": false
+    "status": "inactive"
+  },
+  {
+    "title": "Test express",
+    "description": "Express test",
+    "link": "localhost:3001",
+    "priority": "3",
+    "timeToFinish": "10",
+    "createdAt": "2021-10-11T01:14:15.099Z",
+    "status": "inactive",
+    "id": "1633914855099"
+  },
+  {
+    "title": "Test express",
+    "description": "Express test",
+    "link": "localhost:3001",
+    "priority": "3",
+    "timeToFinish": "10",
+    "createdAt": "2021-10-11T01:14:36.289Z",
+    "status": "inactive",
+    "id": "1633914876289"
+  },
+  {
+    "title": "Test express",
+    "description": "Express test",
+    "link": "localhost:3001",
+    "priority": "3",
+    "timeToFinish": "10",
+    "createdAt": "2021-10-11T01:14:49.151Z",
+    "status": "inactive",
+    "id": "1633914889151"
+  },
+  {
+    "title": "Test express",
+    "description": "Express test",
+    "link": "localhost:3001",
+    "priority": "3",
+    "timeToFinish": "10",
+    "createdAt": "2021-10-11T01:17:57.041Z",
+    "status": "inactive",
+    "id": "1633915077041"
+  },
+  {
+    "title": "Test express",
+    "description": "Express test",
+    "link": "localhost:3001",
+    "priority": "3",
+    "timeToFinish": "10",
+    "createdAt": "2021-10-11T01:18:15.180Z",
+    "status": "inactive",
+    "id": "1633915095180"
   }
 ]
