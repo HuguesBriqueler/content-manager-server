@@ -23,6 +23,13 @@ app.get("/api/resources", (req, res) => {
   res.send(resources);
 });
 
+app.get("/api/resources/:id", (req, res) => {
+  const resources = getResources();
+  const { id } = req.params; // const id = req.params.id -- id is the name of param (:id) given in request
+  const resource = resources.find((item) => item.id === id);
+  res.send(resource);
+});
+
 app.post("/api/resources", (req, res) => {
   const resources = getResources(); // storing data.json file
   const resource = req.body; // editing req.body
@@ -30,7 +37,7 @@ app.post("/api/resources", (req, res) => {
   resource.createdAt = new Date();
   resource.status = "inactive"; // adding "management proprieties"
   resource.id = Date.now().toString();
-  resources.push(resource); // adding req.body + new elements to json data
+  resources.unshift(resource); // adding req.body + new elements to json data
 
   fs.writeFile(
     pathToFile,
