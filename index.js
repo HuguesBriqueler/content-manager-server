@@ -33,9 +33,19 @@ app.get("/api/resources/:id", (req, res) => {
 app.patch("/api/resources/:id", (req, res) => {
   const resources = getResources();
   const { id } = req.params; // const id = req.params.id -- id is the name of param (:id) given in request
-  const index = resources.findIndex((item) => item.id === id);
 
+  const index = resources.findIndex((item) => item.id === id);  
   resources[index] = req.body;
+
+  // ----- Related to activate function -----
+  const activeResource = resources.find(resource => resource.status === "active")
+  if (req.body.status === "active") {
+    if (activeResource) {
+      return res.status(422).send("Another resource is active !")
+    }
+    resource[index].status = "active"
+    resource[index].activationTime = new Date()
+  }
 
   fs.writeFile(
     pathToFile,
