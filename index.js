@@ -30,6 +30,25 @@ app.get("/api/resources/:id", (req, res) => {
   res.send(resource);
 });
 
+app.patch("/api/resources/:id", (req, res) => {
+  const resources = getResources();
+  const { id } = req.params; // const id = req.params.id -- id is the name of param (:id) given in request
+  const index = resources.findIndex((item) => item.id === id);
+
+  resources[index] = req.body;
+
+  fs.writeFile(
+    pathToFile,
+    JSON.stringify(resources, null, 2), // Saving file with new entry
+    (err) => {
+      if (err) {
+        return res.status(422).send("Cannot store data in the file !");
+      }
+      return res.send("Data have been PATCHed");
+    }
+  );
+});
+
 app.post("/api/resources", (req, res) => {
   const resources = getResources(); // storing data.json file
   const resource = req.body; // editing req.body
@@ -43,13 +62,12 @@ app.post("/api/resources", (req, res) => {
     pathToFile,
     JSON.stringify(resources, null, 2), // Saving file with new entry
     (err) => {
-      if (err) return res.status(422).send("Cannot store data in the file !");
+      if (err) {
+        return res.status(422).send("Cannot store data in the file !");
+      }
+      return res.send("Data have been POSTed");
     }
   );
-
-  console.log("POST request recieved");
-  console.log(req.body);
-  res.send("Data have been POSTed");
 });
 
 app.listen(PORT, () => console.log(`Server is listening on port : ${PORT}`));
