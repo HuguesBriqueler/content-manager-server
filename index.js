@@ -46,6 +46,9 @@ app.patch("/api/resources/:id", (req, res) => {
   const activeResource = resources.find(
     (resource) => resource.status === "active"
   );
+  if (resources[index].status === "complete") {
+    return res.status(422).send("Resource has already been completed !");
+  }
   resources[index] = req.body;
 
   // ----- Related to activate function -----
